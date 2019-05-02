@@ -1,0 +1,191 @@
+$colors: (
+  primary: #002e58,
+);
+$padding: 14px;
+$fontsize: 14px;
+$side-width: 11em;
+$content-width: 1fr;
+$desktop: 840px;
+@mixin desktop {
+  @media(min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: 'Helvetica', 'Verdana', sans-serif;
+  height: 100%;
+}
+
+body {
+  color: black;
+  font-size: $fontsize;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+.primary {
+  color: map-get($colors, primary);
+}
+
+.title {
+  font-size: 1.25rem;
+}
+
+.page-break {
+  page-break-after: always;
+}
+
+.resume--container {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  @include desktop {
+    max-width: 11in;
+  }
+
+  #bg {
+    display: grid;
+    grid-template-columns: $side-width $content-width;
+    position: absolute;
+    height: 100%;
+
+    div:first-child {
+      background-color: map-get($colors, primary);
+    }
+  }
+
+  & > section {
+    padding-top: $padding * 1.5;
+  }
+
+  section + section {
+    padding-top: $padding / 2;
+  }
+
+  section {
+    display: grid;
+    grid-template-columns: $side-width $content-width;
+
+    .side {
+      width: $side-width;
+      color: #fff;
+      text-align: right;
+    }
+
+    .info {
+      margin: auto 0.75em;
+      position: relative;
+
+      & > * {
+        margin-bottom: $padding / 2;
+      }
+
+      &--header {
+        font-size: 2.25rem;
+        color: map-get($colors, primary);
+        font-weight: 600;
+      }
+
+      &--header__title {
+        font-size: 1.75em;
+        font-weight: 600;
+        color: map-get($colors, primary);
+      }
+
+      &--header__subheader {
+        display: block;
+        font-size: 1.4rem;
+        color: map-get($colors, primary);
+      }
+
+      &--personal {
+        ul {
+          list-style: none;
+          @include desktop {
+            column-count: 2;
+          }
+        }
+
+        li + li {
+          margin-top: $padding / 2;
+        }
+
+        .icon {
+          vertical-align: sub;
+        }
+      }
+
+      &--experience {
+        margin-left: $padding * 2.4;
+
+        .row {
+          position: relative;
+          line-height: 1.5em;
+          padding-left: $padding / 2;
+
+          .title:before {
+            content: '\2022';
+            position: absolute;
+            left: -23px;
+            font-size: 1.5em;
+            color: map-get($colors, primary);
+            font-weight: bold;
+          }
+
+          .title--year {
+            position: absolute;
+            left: -12em;
+            color: white;
+            font-weight: bold;
+          }
+
+          .title + p {
+            font-size: 0.8rem;
+          }
+
+          ul {
+            padding-left: $padding;
+          }
+        }
+
+        .row + .row {
+          margin-top: $padding;
+        }
+      }
+    }
+  }
+
+  .fa {
+    color: map-get($colors, primary);
+  }
+
+  .icon {
+    display: inline-block;
+    text-align: center;
+    width: 2rem;
+
+    .fa {
+      font-size: 1.4rem;
+    }
+  }
+
+  .skill-list {
+    p {
+      line-height: 2em;
+
+      span {
+        float: right;
+      }
+    }
+  }
+}

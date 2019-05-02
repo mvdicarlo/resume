@@ -1,0 +1,18 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp sass:watch",
+    "serve": "gulp serve"
+  },
+  "author": "Michael DiCarlo",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.5",
+    "gulp": "^4.0.1",
+    "gulp-sass": "^4.0.2"
+  }
+}
