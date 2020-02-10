@@ -11,6 +11,11 @@ $desktop: 840px;
     @content;
   }
 }
+@mixin print {
+  @media(min-width: 400px) {
+    @content;
+  }
+}
 
 * {
   padding: 0;
@@ -41,9 +46,9 @@ p {
   font-size: 1.25rem;
 }
 
-.page-break {
-  page-break-after: always;
-}
+// .page-break {
+//   page-break-after: always;
+// }
 
 .resume--container {
   position: relative;
@@ -112,6 +117,9 @@ p {
         ul {
           list-style: none;
           @include desktop {
+            column-count: 2;
+          }
+          @include print {
             column-count: 2;
           }
         }

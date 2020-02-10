@@ -21,9 +21,6 @@ p {
 .title {
   font-size: 1.25rem; }
 
-.page-break {
-  page-break-after: always; }
-
 .resume--container {
   position: relative;
   width: 100%;
@@ -69,6 +66,9 @@ p {
       .resume--container section .info--personal ul {
         list-style: none; }
         @media (min-width: 840px) {
+          .resume--container section .info--personal ul {
+            column-count: 2; } }
+        @media (min-width: 400px) {
           .resume--container section .info--personal ul {
             column-count: 2; } }
       .resume--container section .info--personal li + li {
